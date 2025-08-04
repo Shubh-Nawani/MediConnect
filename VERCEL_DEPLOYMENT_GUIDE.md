@@ -13,7 +13,11 @@
 - `server/.env.template` - Environment variables template (safe to commit)
 - `client/.env.template` - Frontend environment template (safe to commit)
 - `.vercelignore` files - Exclude unnecessary files
+- `.gitignore` files - **Prevent ALL .env files from being committed**
 - Git repository initialized with proper commit history
+
+### 🔐 Environment Security
+**IMPORTANT**: All actual .env files are now **automatically ignored by Git**. Only template files are committed for reference.
 
 ## 🚀 Deployment Steps
 
