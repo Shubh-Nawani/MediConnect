@@ -1,8 +1,20 @@
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcryptjs');
-const Patient = require('../models/Patient');
+// Check if required dependencies are available
+let passport, GoogleStrategy, LocalStrategy, bcrypt, Patient;
+
+try {
+    passport = require('passport');
+    GoogleStrategy = require('passport-google-oauth20').Strategy;
+    LocalStrategy = require('passport-local').Strategy;
+    bcrypt = require('bcryptjs');
+    Patient = require('../models/Patient');
+} catch (error) {
+    console.error('Passport dependencies not available:', error.message);
+    module.exports = null;
+    return;
+}
+
+// Only configure if all dependencies are loaded
+if (passport && GoogleStrategy && LocalStrategy && bcrypt && Patient) {
 
 // Serialize user for the session
 passport.serializeUser((user, done) => {
@@ -103,4 +115,6 @@ passport.use(
   )
 );
 
-module.exports = passport;
+} // End of conditional block
+
+module.exports = passport || null;

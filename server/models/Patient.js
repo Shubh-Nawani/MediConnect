@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
+/**
+ * Patient Schema for MediConnect
+ * Supports both local registration and OAuth authentication
+ */
 const patientSchema = new mongoose.Schema({
+  // Basic patient information
   name: {
     type: String,
     required: true,
@@ -13,52 +18,61 @@ const patientSchema = new mongoose.Schema({
   password: {
     type: String,
     required: function() {
-      return !this.googleId; // Password is required only if no OAuth provider
+      return !this.googleId; // Password required only for local accounts
     },
   },
-  // OAuth provider IDs
+  
+  // OAuth provider identification
   googleId: {
     type: String,
     unique: true,
-    sparse: true, // Allows multiple null values
+    sparse: true, // Allows multiple null values for unique constraint
   },
+  
+  // Profile information
   avatar: {
     type: String,
     default: null,
   },
   provider: {
     type: String,
-    enum: ['local', 'google'],
+    enum: ['local', 'google'],     // Supported authentication providers
     default: 'local',
   },
   isVerified: {
     type: Boolean,
-    default: false,
+    default: false,               // Email verification status
   },
-  // OAuth access tokens (optional, for API access)
+  
+  // OAuth integration data (optional)
   accessTokens: {
     google: { type: String, default: null },
   },
-  // Profile data from OAuth providers
   oauthProfiles: {
     google: { type: Object, default: null },
   },
-  // Security
+  
+  // Security and session management
   lastLogin: { type: Date, default: Date.now },
   loginAttempts: { type: Number, default: 0 },
-  lockUntil: Date,
+  lockUntil: Date,               // Account lock expiration time
 }, {
-  timestamps: true,
+  timestamps: true,              // Adds createdAt and updatedAt fields
 });
 
-// Virtual for account lock status
+/**
+ * Virtual property to check if account is currently locked
+ */
 patientSchema.virtual('isLocked').get(function() {
   return !!(this.lockUntil && this.lockUntil > Date.now());
 });
 
-// Method to increment login attempts
+/**
+ * Method to increment login attempts and lock account if necessary
+ * Implements brute force protection by locking account after 5 failed attempts
+ */
 patientSchema.methods.incLoginAttempts = function() {
-  // If we have a previous lock that has expired, restart at 1
+  // Reset attempts if previous lock has expired
   if (this.lockUntil && this.lockUntil < Date.now()) {
     return this.updateOne({
       $unset: { lockUntil: 1 },
@@ -76,7 +90,9 @@ patientSchema.methods.incLoginAttempts = function() {
   return this.updateOne(updates);
 };
 
-// Method to reset login attempts
+/**
+ * Method to reset login attempts after successful login
+ */
 patientSchema.methods.resetLoginAttempts = function() {
   return this.updateOne({
     $unset: { loginAttempts: 1, lockUntil: 1 }

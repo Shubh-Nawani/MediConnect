@@ -1,0 +1,130 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 800
+>>
+stream
+BT
+/F1 18 Tf
+50 750 Td
+(MEDICONNECT LAB REPORT) Tj
+0 -30 Td
+/F2 12 Tf
+(Report ID: MC-2025-001234) Tj
+0 -20 Td
+(Date: August 5, 2025) Tj
+0 -40 Td
+/F1 14 Tf
+(PATIENT INFORMATION) Tj
+0 -25 Td
+/F2 12 Tf
+(Name: John Doe) Tj
+0 -15 Td
+(Age: 35 years) Tj
+0 -15 Td
+(Gender: Male) Tj
+0 -15 Td
+(Patient ID: P-12345) Tj
+0 -40 Td
+/F1 14 Tf
+(TEST RESULTS - COMPLETE BLOOD COUNT) Tj
+0 -25 Td
+/F2 12 Tf
+(Hemoglobin: 14.2 g/dL (Normal: 13.5-17.5)) Tj
+0 -15 Td
+(White Blood Cells: 6,800 /uL (Normal: 4,500-11,000)) Tj
+0 -15 Td
+(Red Blood Cells: 4.8 million/uL (Normal: 4.7-6.1)) Tj
+0 -15 Td
+(Platelets: 285,000 /uL (Normal: 150,000-450,000)) Tj
+0 -15 Td
+(Hematocrit: 42% (Normal: 41-53%)) Tj
+0 -40 Td
+/F1 14 Tf
+(INTERPRETATION) Tj
+0 -25 Td
+/F2 12 Tf
+(All values are within normal limits.) Tj
+0 -15 Td
+(No immediate health concerns identified.) Tj
+0 -15 Td
+(Continue routine health monitoring.) Tj
+0 -40 Td
+/F1 12 Tf
+(Reviewed by: Dr. Sarah Johnson, MD) Tj
+0 -15 Td
+(Medical Director, MediConnect Labs) Tj
+0 -15 Td
+(Certified: August 5, 2025) Tj
+0 -30 Td
+/F2 10 Tf
+(This report is confidential and for medical use only.) Tj
+0 -12 Td
+(For questions, contact: support@mediconnect.com) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+
+6 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000001126 00000 n 
+0000001184 00000 n 
+trailer
+<<
+/Size 7
+/Root 1 0 R
+>>
+startxref
+1238
+%%EOF

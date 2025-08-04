@@ -1,15 +1,24 @@
 const mongoose = require('mongoose');
 
+/**
+ * Test Schema for MediConnect
+ * Represents medical lab tests available for booking
+ */
 const testSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: true,           // Test name is mandatory
   },
-  description: String,
+  description: {
+    type: String,            // Optional detailed description
+    default: null,
+  },
   price: {
     type: Number,
-    required: true,
+    required: true,          // Price is mandatory for billing
   },
+}, {
+  timestamps: true,          // Adds createdAt and updatedAt fields
 });
 
 module.exports = mongoose.model('Test', testSchema);

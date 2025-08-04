@@ -4,8 +4,7 @@ import axios from '../services/api';
 
 function OAuthProviders({ 
   mode = 'login', // 'login' or 'register'
-  className = "",
-  showDivider = true 
+  className = ""
 }) {
   const [providers, setProviders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -50,20 +49,7 @@ function OAuthProviders({
 
   return (
     <div className={className}>
-      {showDivider && (
-        <div className="mt-6">
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300" />
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Or continue with</span>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="mt-6 space-y-3">
+      <div className="space-y-3">
         {enabledProviders.map((provider) => {
           if (provider.name === 'google') {
             return (
@@ -75,13 +61,6 @@ function OAuthProviders({
           }
           return null;
         })}
-      </div>
-
-      {/* Privacy Notice */}
-      <div className="mt-4 text-center">
-        <p className="text-xs text-gray-500">
-          By using Google OAuth, you agree to share your basic profile information with MediConnect.
-        </p>
       </div>
     </div>
   );

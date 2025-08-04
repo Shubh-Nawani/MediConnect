@@ -2,102 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global App Styling - Prevent White Background */
-* {
-  box-sizing: border-box;
-}
-
-html {
-  background-color: #0f172a;
-  min-height: 100vh;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  overscroll-behavior: none;
-}
-
-body {
-  background-color: #0f172a;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  line-height: 1.6;
-  color: #f8fafc;
-  overflow-x: hidden;
-  overscroll-behavior: none;
-}
-
-#root {
-  background-color: #0f172a;
-  min-height: 100vh;
-}
-
-/* Typography System */
-.font-inter { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; }
-
-/* Consistent Heading Sizes */
-h1, .h1 { 
-  font-size: 2.5rem; 
-  line-height: 1.2; 
-  font-weight: 700; 
-  letter-spacing: -0.025em;
-}
-
-h2, .h2 { 
-  font-size: 2rem; 
-  line-height: 1.3; 
-  font-weight: 600; 
-  letter-spacing: -0.025em;
-}
-
-h3, .h3 { 
-  font-size: 1.5rem; 
-  line-height: 1.4; 
-  font-weight: 600; 
-}
-
-h4, .h4 { 
-  font-size: 1.25rem; 
-  line-height: 1.4; 
-  font-weight: 500; 
-}
-
-h5, .h5 { 
-  font-size: 1.125rem; 
-  line-height: 1.5; 
-  font-weight: 500; 
-}
-
-h6, .h6 { 
-  font-size: 1rem; 
-  line-height: 1.5; 
-  font-weight: 500; 
-}
-
-/* Body Text Sizes */
-.text-xs { font-size: 0.75rem; line-height: 1.5; }
-.text-sm { font-size: 0.875rem; line-height: 1.5; }
-.text-base { font-size: 1rem; line-height: 1.6; }
-.text-lg { font-size: 1.125rem; line-height: 1.6; }
-.text-xl { font-size: 1.25rem; line-height: 1.6; }
-.text-2xl { font-size: 1.5rem; line-height: 1.4; }
-
-/* Responsive Typography */
-@media (min-width: 768px) {
-  h1, .h1 { font-size: 3rem; }
-  h2, .h2 { font-size: 2.25rem; }
-  h3, .h3 { font-size: 1.75rem; }
-}
-
-@media (min-width: 1024px) {
-  h1, .h1 { font-size: 3.5rem; }
-  h2, .h2 { font-size: 2.5rem; }
-  h3, .h3 { font-size: 2rem; }
-}
-
 /* =============================================
    MEDICONNECT PROFESSIONAL UI SYSTEM
    ============================================= */
@@ -214,11 +118,6 @@ h6, .h6 {
   --z-modal: 1050;
   --z-popover: 1060;
   --z-tooltip: 1070;
-
-  /* Glass Morphism Variables */
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 /* Dark Theme */
@@ -259,11 +158,6 @@ h6, .h6 {
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-
-  /* Dark Glass Morphism Variables */
-  --glass-bg: rgba(15, 23, 42, 0.8);
-  --glass-border: rgba(148, 163, 184, 0.1);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 @layer base {
@@ -514,15 +408,9 @@ h6, .h6 {
   }
 
   .glass-effect {
-    background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-  }
-
-  .glass-card {
-    @apply glass-effect rounded-xl p-6;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   :root[data-theme="dark"] .glass-effect {
@@ -659,11 +547,6 @@ h6, .h6 {
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
-  }
-
-  .no-scroll {
-    overflow: hidden;
-    height: 100vh;
   }
 }
 
