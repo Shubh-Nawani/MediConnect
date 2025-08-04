@@ -70,15 +70,16 @@ VITE_APP_ENV=development
 
 ## ✅ Git Ignore Status
 
+**Simplified Structure**: Single root `.gitignore` file covers the entire project.
+
 The following patterns are ignored by Git:
-- `.env`
-- `.env.*`
-- `.env.local`
-- `.env.development`
-- `.env.production`
-- `.env.staging`
-- `.env.test`
-- `**/.env` (all .env files in any subdirectory)
+- `.env` and `.env*` (all environment files)
+- `*.env` and `*.env*` (environment files anywhere)
+- `**/.env` and `**/.env*` (recursive environment file patterns)
+- `node_modules/` (dependencies)
+- `dist/`, `build/` (build outputs)
+- `.vercel/` (deployment cache)
+- System and IDE files
 
 ## 🚀 Deployment
 
