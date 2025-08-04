@@ -55,6 +55,18 @@ export default {
           800: '#92400e',
           900: '#78350f',
         },
+        danger: {
+          50: '#fef2f2',
+          100: '#fee2e2',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#ef4444',
+          600: '#dc2626',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
+        },
         error: {
           50: '#fef2f2',
           100: '#fee2e2',
@@ -69,12 +81,26 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Funnel Sans', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'Funnel Sans', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', 'monospace'],
       },
       boxShadow: {
-        'soft': '0 2px 15px 0 rgba(0, 0, 0, 0.1)',
-        'medium': '0 4px 20px 0 rgba(0, 0, 0, 0.15)',
-        'hard': '0 10px 40px 0 rgba(0, 0, 0, 0.2)',
+        'soft': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+        'medium': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'large': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'extra-large': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+      },
+      borderRadius: {
+        'sm': '0.375rem',
+        'md': '0.5rem',
+        'lg': '0.75rem',
+        'xl': '1rem',
+        '2xl': '1.5rem',
+      },
+      transitionDuration: {
+        'fast': '150ms',
+        'normal': '250ms',
+        'slow': '350ms',
       }
     },
   },

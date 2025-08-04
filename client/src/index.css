@@ -2,36 +2,459 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =============================================
+   MEDICONNECT GLOBAL STYLES
+   ============================================= */
+
+/* CSS Variables for consistent theming */
+:root {
+  /* Primary Medical Blue Theme */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+  /* Medical Green for Success/Health */
+  --color-success-50: #ecfdf5;
+  --color-success-100: #d1fae5;
+  --color-success-200: #a7f3d0;
+  --color-success-300: #6ee7b7;
+  --color-success-400: #34d399;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+  --color-success-700: #047857;
+  --color-success-800: #065f46;
+  --color-success-900: #064e3b;
+
+  /* Medical Red for Alerts/Urgent */
+  --color-danger-50: #fef2f2;
+  --color-danger-100: #fee2e2;
+  --color-danger-200: #fecaca;
+  --color-danger-300: #fca5a5;
+  --color-danger-400: #f87171;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-danger-700: #b91c1c;
+  --color-danger-800: #991b1b;
+  --color-danger-900: #7f1d1d;
+
+  /* Medical Orange for Warnings */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+
+  /* Neutral Grays */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-extra-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+}
+
 @layer base {
+  /* Base HTML Elements */
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-gray-50 font-sans antialiased;
+    @apply bg-gray-50 text-gray-900 antialiased;
     margin: 0;
+    padding: 0;
     min-height: 100vh;
+    font-family: var(--font-sans);
+  }
+
+  /* Typography Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-gray-900 leading-tight;
+    margin: 0 0 1rem 0;
+  }
+
+  h1 { @apply text-4xl md:text-5xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+  h5 { @apply text-lg md:text-xl; }
+  h6 { @apply text-base md:text-lg; }
+
+  p {
+    @apply text-gray-700 leading-relaxed;
+    margin: 0 0 1rem 0;
+  }
+
+  a {
+    @apply text-primary-600 hover:text-primary-700 transition-colors duration-200 no-underline;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Form Elements */
+  input, textarea, select {
+    font-family: inherit;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  /* Focus Styles */
+  :focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
   }
 }
 
 @layer components {
+  /* =============================================
+     BUTTON COMPONENTS
+     ============================================= */
+  
+  .btn {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+    border-radius: var(--radius-lg);
+    padding: 0.625rem 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    border-radius: var(--radius-md);
+  }
+
+  .btn-lg {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    border-radius: var(--radius-xl);
+  }
+
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2.5 px-6 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply btn bg-primary-600 text-white shadow-soft hover:bg-primary-700 hover:shadow-medium focus:ring-primary-500;
   }
-  
+
   .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-gray-700 font-medium py-2.5 px-6 rounded-lg border border-gray-300 transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply btn bg-white text-gray-700 border border-gray-300 shadow-soft hover:bg-gray-50 hover:shadow-medium focus:ring-primary-500;
   }
-  
+
   .btn-success {
-    @apply bg-success-600 hover:bg-success-700 text-white font-medium py-2.5 px-6 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-success-500 focus:ring-offset-2;
+    @apply btn bg-success-600 text-white shadow-soft hover:bg-success-700 hover:shadow-medium focus:ring-success-500;
   }
-  
+
+  .btn-danger {
+    @apply btn bg-danger-600 text-white shadow-soft hover:bg-danger-700 hover:shadow-medium focus:ring-danger-500;
+  }
+
+  .btn-warning {
+    @apply btn bg-warning-600 text-white shadow-soft hover:bg-warning-700 hover:shadow-medium focus:ring-warning-500;
+  }
+
+  .btn-outline-primary {
+    @apply btn bg-transparent text-primary-600 border border-primary-600 hover:bg-primary-50 focus:ring-primary-500;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-700 focus:ring-gray-500;
+  }
+
+  /* =============================================
+     FORM COMPONENTS
+     ============================================= */
+
+  .form-group {
+    @apply mb-6;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  .form-label-required::after {
+    content: " *";
+    @apply text-danger-500;
+  }
+
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 placeholder-gray-400;
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder-gray-400 shadow-soft transition-all duration-200;
+    @apply focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:shadow-medium;
   }
-  
+
+  .input-field:invalid {
+    @apply border-danger-300 focus:ring-danger-500 focus:border-danger-500;
+  }
+
+  .input-field-sm {
+    @apply px-3 py-2 text-sm;
+    border-radius: var(--radius-md);
+  }
+
+  .input-field-lg {
+    @apply px-5 py-4 text-lg;
+    border-radius: var(--radius-xl);
+  }
+
+  .form-error {
+    @apply text-danger-600 text-sm mt-1 block;
+  }
+
+  .form-help {
+    @apply text-gray-500 text-sm mt-1 block;
+  }
+
+  /* =============================================
+     CARD COMPONENTS
+     ============================================= */
+
   .card {
-    @apply bg-white rounded-xl shadow-soft border border-gray-100 p-6;
+    @apply bg-white rounded-xl border border-gray-200 shadow-soft;
+    overflow: hidden;
   }
-  
+
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200 bg-gray-50;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  .card-footer {
+    @apply px-6 py-4 border-t border-gray-200 bg-gray-50;
+  }
+
   .card-hover {
-    @apply bg-white rounded-xl shadow-soft border border-gray-100 p-6 hover:shadow-medium transition-shadow duration-200 cursor-pointer;
+    @apply card transition-all duration-200 hover:shadow-medium hover:border-gray-300 cursor-pointer;
+  }
+
+  .card-clickable:hover {
+    @apply transform -translate-y-1;
+  }
+
+  /* =============================================
+     MEDICAL-SPECIFIC COMPONENTS
+     ============================================= */
+
+  .medical-card {
+    @apply card border-l-4 border-l-primary-500;
+  }
+
+  .health-status-good {
+    @apply bg-success-50 border border-success-200 text-success-800 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .health-status-warning {
+    @apply bg-warning-50 border border-warning-200 text-warning-800 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .health-status-critical {
+    @apply bg-danger-50 border border-danger-200 text-danger-800 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .test-result-card {
+    @apply medical-card p-4 mb-4;
+  }
+
+  .appointment-card {
+    @apply card p-4 border-l-4 border-l-blue-500 hover:shadow-medium transition-shadow duration-200;
+  }
+
+  /* =============================================
+     NAVIGATION COMPONENTS
+     ============================================= */
+
+  .nav-link {
+    @apply text-gray-600 hover:text-primary-600 px-3 py-2 rounded-lg transition-colors duration-200 font-medium;
+  }
+
+  .nav-link-active {
+    @apply nav-link text-primary-600 bg-primary-50;
+  }
+
+  .nav-button {
+    @apply nav-link hover:bg-gray-100;
+  }
+
+  /* =============================================
+     UTILITY COMPONENTS
+     ============================================= */
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-800;
+  }
+
+  .badge-success {
+    @apply badge bg-success-100 text-success-800;
+  }
+
+  .badge-warning {
+    @apply badge bg-warning-100 text-warning-800;
+  }
+
+  .badge-danger {
+    @apply badge bg-danger-100 text-danger-800;
+  }
+
+  .divider {
+    @apply border-t border-gray-200 my-6;
+  }
+
+  .loading-spinner {
+    @apply animate-spin rounded-full border-2 border-gray-300 border-t-primary-600;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .loading-spinner-lg {
+    @apply loading-spinner;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  /* =============================================
+     LAYOUT COMPONENTS
+     ============================================= */
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-sm {
+    @apply max-w-3xl mx-auto px-4 sm:px-6;
+  }
+
+  .section {
+    @apply py-12 md:py-16;
+  }
+
+  .section-sm {
+    @apply py-8 md:py-12;
+  }
+
+  .grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* =============================================
+     ACCESSIBILITY IMPROVEMENTS
+     ============================================= */
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-primary-600 text-white px-4 py-2 z-50;
+  }
+
+  /* =============================================
+     RESPONSIVE HELPERS
+     ============================================= */
+
+  .text-responsive {
+    @apply text-sm md:text-base;
+  }
+
+  .heading-responsive {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  .spacing-responsive {
+    @apply space-y-4 md:space-y-6;
+  }
+}
+
+@layer utilities {
+  /* Custom utility classes */
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-medium { box-shadow: var(--shadow-medium); }
+  .shadow-large { box-shadow: var(--shadow-large); }
+  .shadow-extra-large { box-shadow: var(--shadow-extra-large); }
+
+  .transition-fast { transition: all var(--transition-fast); }
+  .transition-normal { transition: all var(--transition-normal); }
+  .transition-slow { transition: all var(--transition-slow); }
+
+  /* Medical-themed backgrounds */
+  .bg-medical-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.05' fill-rule='nonzero'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20M10 30c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Print styles */
+  @media print {
+    .no-print { display: none !important; }
+    .print-only { display: block !important; }
+    body { background: white !important; }
+    .card { box-shadow: none !important; border: 1px solid #ddd !important; }
   }
 }

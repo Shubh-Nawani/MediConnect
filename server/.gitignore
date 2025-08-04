@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+
+# Environment variables - ALL ENV FILES
+.env
+.env.*
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.test
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Optional build outputs (if using tools like TypeScript/Babel)
+dist/
+build/
+
+# IDE/editor config
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+.vercel
