@@ -10,8 +10,8 @@
 ### ✅ Files Already Configured
 - `server/vercel.json` - Backend deployment configuration
 - `client/vercel.json` - Frontend deployment configuration
-- `server/.env.production` - Production environment template
-- `client/.env.production` - Frontend production environment template
+- `server/.env.template` - Environment variables template (safe to commit)
+- `client/.env.template` - Frontend environment template (safe to commit)
 - `.vercelignore` files - Exclude unnecessary files
 - Git repository initialized with proper commit history
 

@@ -1,8 +1,14 @@
 # Node modules
 node_modules/
 
-# Environment variables
+# Environment variables - ALL ENV FILES
 .env
+.env.*
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.test
 
 # Logs
 logs/

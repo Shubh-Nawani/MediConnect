@@ -4,10 +4,14 @@ node_modules/
 # build output
 dist/
 
-# local env files
+# Environment variables - ALL ENV FILES
 .env
+.env.*
 .env.local
-.env.*.local
+.env.development
+.env.production
+.env.staging
+.env.test
 
 # system files
 .DS_Store
