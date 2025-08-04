@@ -6,13 +6,11 @@ yarn-error.log*
 
 # Environment variables - ALL ENV FILES (NEVER COMMIT THESE)
 .env
-.env.*
-.env.local
-.env.development
-.env.production
-.env.staging
-.env.test
+.env*
+*.env
+*.env*
 **/.env
+**/.env*
 **/.env.*
 
 # Build outputs
