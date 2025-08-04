@@ -358,7 +358,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📞 Support
 
-For support, email shubhnawanis65@gmail.com or create an issue on GitHub.
+For support, email shunaw2006@gmail.com or create an issue on GitHub.
 
 ---
 
